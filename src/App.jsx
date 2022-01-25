@@ -3,7 +3,7 @@ import alanBtn from "@alan-ai/alan-sdk-web";
 import NewsCards from "./components/NewsCards/NewsCards";
 import useStyles from "./styles";
 import alanImage from "./alan.jpg";
-// import wordsToNumbers from "words-to-numbers";
+//import wordsToNumbers from "words-to-numbers";
 
 const alanKey =
   "b0f46291f4219359adc1e93331242a3b2e956eca572e1d8b807a3e2338fdd0dc/stage";
@@ -23,11 +23,9 @@ function App() {
         } else if (command === "highlight") {
           setActiveArticle((prevActiveArticle) => prevActiveArticle + 1);
         } else if (command === "open") {
-          const parsedNumber = number;
+          const article = articles[number];
 
-          const article = articles[parsedNumber - 1];
-
-          if (parsedNumber > 20) {
+          if (number > 20) {
             alanBtn().playText("Please try that again");
           } else if (article) {
             window.open(article, "_blank");
